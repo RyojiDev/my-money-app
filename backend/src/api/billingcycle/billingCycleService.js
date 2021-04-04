@@ -16,21 +16,13 @@ BillingCycle.route('count', (req, res, next) =>{
 })
 
 BillingCycle.route('get', (req, res, next) => {
-
     BillingCycle.find({}, (err, docs) => {
-
-        if(!err) {
-
+        if (!err) {
             res.json(docs)
-
         } else {
-
-            res.status(500).json({errors: [error]})
-
+            res.status(500).json({ errors: [error] })
         }
-
-    })
-
+    }).skip(req.query.skip).limit(req.query.limit)
 })
 
 BillingCycle.route('summary', (req, res, next) => {
