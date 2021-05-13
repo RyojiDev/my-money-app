@@ -40,10 +40,16 @@ render(){
               <List />
             </TabContent>
             <TabContent id='tabCreate'>
-              <Form onSubmit={this.props.create}/>
+              <Form onSubmit={this.props.create}
+                submitLabel='Incluir' submitClass='primary'
+              />
             </TabContent>
-            <TabContent id='tabUpdate'><Form onSubmit={this.props.update}/></TabContent>
-            <TabContent id='tabDelete'><Form onSubmit={this.props.remove} readOnly={true} /></TabContent>
+            <TabContent id='tabUpdate'>
+            <Form onSubmit={this.props.update} submitClass='info' submitLabel='Alterar'/>
+            </TabContent>
+            <TabContent id='tabDelete'>
+            <Form onSubmit={this.props.remove} readOnly={true} submitClass='danger' submitLabel='Excluir' />
+            </TabContent>
           </TabsContent>
         </Tabs>
       </Content>
